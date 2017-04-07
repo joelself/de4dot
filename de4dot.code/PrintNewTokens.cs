@@ -62,11 +62,14 @@ namespace de4dot.code {
 				foreach (var method in type.Methods) {
 					newRid = md.GetRid(method);
 					if (newRid == 0)
-						continue;
-					Logger.v("{0:X8} -> {1:X8} Method: {2}",
-							method.MDToken.ToUInt32(),
-							new MDToken(Table.Method, newRid).ToUInt32(),
-							Utils.RemoveNewlines(method));
+                        continue;
+                    Logger.v("{0:X8} -> {1:X8} Method: {2}",
+                            method.MDToken.ToUInt32(),
+                            new MDToken(Table.Method, newRid).ToUInt32(),
+                            Utils.RemoveNewlines(method));
+                    Logger.v("Old Method: {0} -> New Method: {1}",
+                            method.OldFullName,
+                            Utils.RemoveNewlines(method));
 				}
 
 				foreach (var field in type.Fields) {

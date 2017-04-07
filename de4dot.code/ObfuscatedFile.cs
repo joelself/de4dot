@@ -581,6 +581,7 @@ namespace de4dot.code {
 					Logger.v("Deobfuscating {0} ({1:X8})", Utils.RemoveNewlines(method), method.MDToken.ToUInt32());
 					Logger.Instance.Indent();
 				}
+                method.OldFullName = Utils.RemoveNewlines(method);
 
 				int oldIndentLevel = Logger.Instance.IndentLevel;
 				try {
